@@ -42,5 +42,4 @@
 
         System.out.println("Max is: " + maxSoFar);
     }
-
  }
