@@ -2,30 +2,48 @@
 // Maxwell Kei Farouk
 // Wednesday E1/E2
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Main{
 
+    // count variables
     static int countOn3 = 0;
     static int countOn2A = 0;
     static int countOn2B = 0;
     static int countOn = 0;
 
-    public static void main(String[] args)
-    {
-
-        int[] arrSizes = {10, 100, 1000};
-
-        int[] arr = createArray(20);
-        System.out.println(Arrays.toString(arr));
-        System.out.println("Kadanes: " + mscOn(arr) + "steps: " + countOn);
-        System.out.println("O(n^3): " + mcsOn3(arr) + "steps: " + countOn3);
-        System.out.println("O(n^2)(A): " + mcsOn2A(arr) + "steps: " + countOn2A);
-        System.out.println("O(n^2)(B): " + mcsOn2B(arr) + "steps: " + countOn2B);
-
+    // Reset the counters
+    public static void resetCounters() {
+        countOn3 = 0;
+        countOn2A = 0;
+        countOn2B = 0;
+        countOn = 0;
     }
 
+    // Main executable method
+    public static void main(String[] args)
+    {
+        int[] sizes = {10, 100, 1000, 3000};
+
+        System.out.printf("%-8s %-15s %-15s %-15s %-15s%n",
+                "n", "O(n^3)", "O(n^2)A", "O(n^2)B", "O(n)");
+
+        for (int n : sizes) {
+
+            int[] X = createArray(n);
+            resetCounters();
+
+            mcsOn3(X);
+            mcsOn2A(X);
+            mcsOn2B(X);
+            mcsOn(X);
+
+            System.out.printf("%-8d %-15d %-15d %-15d %-15d%n",
+                    n, countOn3, countOn2A, countOn2B, countOn);
+        }
+    }
+
+    // Create the methods
     public static int[] createArray(int n)
     {
         int[] arr = new int[n];
@@ -39,6 +57,7 @@ public class Main{
         return arr;
     }
 
+    // O(n^3) Sort
     public static int mcsOn3(int[] arr)
     {
         int N = arr.length;
@@ -59,9 +78,11 @@ public class Main{
                 }
             }
         }
+        if (maxSoFar < 0) return 0;
         return maxSoFar;
     }
 
+    // O(n^2)(A) Sort
     public static int mcsOn2A(int[] arr) {
         int N = arr.length;
         int maxSoFar = 0;
@@ -79,6 +100,7 @@ public class Main{
         return maxSoFar;
     }
 
+    // O(n^2)(B) Sort
     public static int mcsOn2B(int[] arr) {
         int N = arr.length;
         int[] sumTo = new int[N + 1];
@@ -100,8 +122,8 @@ public class Main{
         return maxSoFar;
     }
 
-
-    public static int mscOn(int[] arr)
+    // O(n) Sort
+    public static int mcsOn(int[] arr)
     {
         int N = arr.length;
         double maxSoFar = 0.0;
@@ -119,7 +141,5 @@ public class Main{
         if (maxSoFar == 0) return 0;
         else return (int)maxSoFar;
     }
-
-
 
 }
