@@ -4,6 +4,7 @@
 
 import java.util.Random;
 
+// Main Class
 public class Main{
 
     // count variables
