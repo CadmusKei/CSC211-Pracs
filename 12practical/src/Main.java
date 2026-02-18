@@ -8,22 +8,9 @@ import java.util.Random;
 public class Main{
     public static void main(String[] args)
     {
-        int[] arr = createArray(5);
+        int[] arr = createArray(10);
         System.out.println(Arrays.toString(arr));
         System.out.println(mscOn(arr));
-    }
-
-    public static int[] createArray(int n)
-    {
-        int[] arr = new int[n];
-        Random randGen = new Random();
-
-        for (int i = 0; i < n; i++)
-        {
-             arr[i] = (int)(randGen.nextInt(1, n)* Math.pow((-1), randGen.nextInt(2, 4)));
-        }
-
-        return arr;
     }
 
     public static int mscOn(int[] arr)
@@ -44,6 +31,16 @@ public class Main{
         else return (int)maxSoFar;
     }
 
+    public static int[] createArray(int n)
+    {
+        int[] arr = new int[n];
+        Random randGen = new Random();
 
+        for (int i = 0; i < n; i++)
+        {
+             arr[i] = (int)(randGen.nextInt(1, n)* Math.pow((-1), randGen.nextInt(2, 4)));
+        }
 
+        return arr;
+    }
 }
