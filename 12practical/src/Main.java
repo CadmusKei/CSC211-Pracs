@@ -5,6 +5,7 @@
 import java.util.Random;
 
 // Main Class
+
 public class Main{
 
     // count variables
@@ -44,7 +45,7 @@ public class Main{
         }
     }
 
-    // Create the methods
+    // Create the array
     public static int[] createArray(int n)
     {
         int[] arr = new int[n];
