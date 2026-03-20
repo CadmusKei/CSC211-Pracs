@@ -1,0 +1,43 @@
+\documentclass[a4wide,11pt]{report}
+\usepackage{latexsym,graphics,amssymb}
+\usepackage[round]{natbib}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\begin{document}
+\setlength{\hoffset}{0pt}
+\setlength{\voffset}{-60pt}
+\addtolength{\textwidth}{72pt}
+\addtolength{\textheight}{144pt}
+\author{
+\\*[+72pt]
+\Huge
+	Reg Dodds\\
+	\vspace{5pt}
+	{\small rdodds@uwc.ac.za}
+}
+\title{
+\fontsize{48pt}{56pt}
+\usefont{OT1}{ptm}{b}{n}
+\centering\color{blue} 
+The Anagrams in Ulysses, by James Joyce}
+\maketitle
+\newpage
+\noindent\copyright{2016} Copyright Reg Dodds.\\
+\newpage
+\renewcommand{\abstractname}{Foreword}
+\begin{abstract}
+This is a crudely produced list of the anagrams found in James Joyce's Ulysses,
+done to illustrate an application of hashing.
+\end{abstract}
+\thispagestyle{empty}
+\setcounter{page}{0}
+\mbox{\ \hspace{12pt}}
+\newpage
+
+\noindent 
+\twocolumn
+\include{theAnagrams}
+
+\vfill
+\end{document}
